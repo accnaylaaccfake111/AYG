@@ -2,6 +2,8 @@ import React from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { keyframes } from '@emotion/react';
 
+import logo from './img/logo.png'; 
+
 // Quỹ đạo xoay vòng tròn
 const spin1 = keyframes`
   0% { transform: translate(0, 0) scale(1); }
@@ -66,30 +68,34 @@ function LandingPage() {
       />
 
       {/* --- NỘI DUNG CHÍNH --- */}
-      <Container maxWidth="sm" sx={{ textAlign: 'center', zIndex: 10 }}>
-        {/* Tiêu đề NDC */}
-        <Typography 
-          variant="h1" 
-          component="h1" 
-          sx={{ 
-            fontWeight: 900, 
-            color: '#ffffff',
-            mb: 1, // Giảm khoảng cách dưới tiêu đề để gần với slogan hơn
-            letterSpacing: '8px',
-            textShadow: '0px 0px 20px rgba(255, 255, 255, 0.4)' 
+      <Container maxWidth="sm" sx={{ textAlign: 'center', zIndex: 10, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        
+        {/* LOGO ĐƯỢC PHÓNG TO */}
+        <Box
+          component="img"
+          src={logo}
+          alt="NDC Logo"
+          sx={{
+            // Dùng responsive size: đt (xs) 220px, tablet (sm) 300px, PC (md) 380px
+            width: { xs: '220px', sm: '300px', md: '380px' }, 
+            height: 'auto',
+            mb: 4, // Tăng khoảng cách dưới logo vì đã bỏ chữ NDC
+            filter: 'drop-shadow(0px 0px 25px rgba(255, 255, 255, 0.3))', // Phát sáng mạnh hơn chút
+            transition: 'transform 0.3s ease', // Thêm hiệu ứng mượt nếu sau này muốn hover
+            '&:hover': {
+              transform: 'scale(1.05)' // Phóng to nhẹ khi chĩa chuột vào logo
+            }
           }}
-        >
-          NDC
-        </Typography>
+        />
 
         {/* Slogan */}
         <Typography 
           variant="h6" 
           sx={{ 
-            color: 'rgba(255, 255, 255, 0.7)', // Màu trắng hơi trong suốt
-            mb: 5, // Khoảng cách từ slogan xuống nút bấm
+            color: 'rgba(255, 255, 255, 0.8)', // Chữ sáng hơn tí xíu cho dễ đọc
+            mb: 5, 
             fontWeight: 400,
-            fontStyle: 'italic', // In nghiêng cho "nghệ thuật"
+            fontStyle: 'italic', 
             letterSpacing: '1px'
           }}
         >

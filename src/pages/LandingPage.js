@@ -1,0 +1,128 @@
+import React from 'react';
+import { Box, Typography, Button, Container } from '@mui/material';
+import { keyframes } from '@emotion/react';
+
+// Quỹ đạo xoay vòng tròn
+const spin1 = keyframes`
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30vw, 20vh) scale(1.2); }
+  50% { transform: translate(0vw, 40vh) scale(0.9); }
+  75% { transform: translate(-30vw, 20vh) scale(1.1); }
+  100% { transform: translate(0, 0) scale(1); }
+`;
+
+const spin2 = keyframes`
+  0% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(-30vw, -20vh) scale(1.1); }
+  50% { transform: translate(0vw, -40vh) scale(0.9); }
+  75% { transform: translate(30vw, -20vh) scale(1.2); }
+  100% { transform: translate(0, 0) scale(1); }
+`;
+
+function LandingPage() {
+  return (
+    <Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+        overflow: 'hidden',
+        backgroundColor: '#0f172a', 
+      }}
+    >
+      {/* --- CÁC KHỐI BLUR --- */}
+      <Box
+        sx={{
+          position: 'absolute',
+          top: '-10%',
+          left: '10%',
+          width: '50vw',
+          height: '50vw',
+          backgroundColor: '#8b5cf6', 
+          borderRadius: '50%',
+          filter: 'blur(120px)',
+          opacity: 0.6,
+          animation: `${spin1} 10s linear infinite`, 
+          zIndex: 1,
+        }}
+      />
+      <Box
+        sx={{
+          position: 'absolute',
+          bottom: '-10%',
+          right: '10%',
+          width: '55vw',
+          height: '55vw',
+          backgroundColor: '#06b6d4', 
+          borderRadius: '50%',
+          filter: 'blur(130px)',
+          opacity: 0.5,
+          animation: `${spin2} 12s linear infinite`, 
+          zIndex: 1,
+        }}
+      />
+
+      {/* --- NỘI DUNG CHÍNH --- */}
+      <Container maxWidth="sm" sx={{ textAlign: 'center', zIndex: 10 }}>
+        {/* Tiêu đề NDC */}
+        <Typography 
+          variant="h1" 
+          component="h1" 
+          sx={{ 
+            fontWeight: 900, 
+            color: '#ffffff',
+            mb: 1, // Giảm khoảng cách dưới tiêu đề để gần với slogan hơn
+            letterSpacing: '8px',
+            textShadow: '0px 0px 20px rgba(255, 255, 255, 0.4)' 
+          }}
+        >
+          NDC
+        </Typography>
+
+        {/* Slogan */}
+        <Typography 
+          variant="h6" 
+          sx={{ 
+            color: 'rgba(255, 255, 255, 0.7)', // Màu trắng hơi trong suốt
+            mb: 5, // Khoảng cách từ slogan xuống nút bấm
+            fontWeight: 400,
+            fontStyle: 'italic', // In nghiêng cho "nghệ thuật"
+            letterSpacing: '1px'
+          }}
+        >
+          "Ở đây chúng tôi tạo ra vấn đề và bán giải pháp"
+        </Typography>
+        
+        {/* Nút bấm Glassmorphism */}
+        <Button 
+          variant="outlined" 
+          size="large"
+          sx={{
+            borderRadius: '50px',
+            padding: '12px 40px',
+            fontSize: '1.2rem',
+            textTransform: 'none',
+            color: '#ffffff',
+            borderColor: 'rgba(255, 255, 255, 0.3)',
+            backgroundColor: 'rgba(255, 255, 255, 0.05)', 
+            backdropFilter: 'blur(10px)', 
+            transition: 'all 0.3s ease',
+            '&:hover': {
+              backgroundColor: 'rgba(255, 255, 255, 0.15)',
+              borderColor: '#ffffff',
+              transform: 'translateY(-4px) scale(1.05)', 
+              boxShadow: '0 10px 30px rgba(6, 182, 212, 0.3)', 
+            }
+          }}
+        >
+          Learn more
+        </Button>
+      </Container>
+    </Box>
+  );
+}
+
+export default LandingPage;

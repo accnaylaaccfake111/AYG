@@ -1,13 +1,10 @@
-// src/pages/HomePage.js
 import React from 'react';
 import { Box, Typography, Container } from '@mui/material';
-import TopMenu from '../components/TopMenu';
 
 function HomePage() {
   return (
-    <Box sx={{ minHeight: '100vh', backgroundColor: '#f1f5f9' }}>
-      <TopMenu />
-      <Container maxWidth="md" sx={{ mt: 5, textAlign: 'center' }}>
+    <Box sx={{ minHeight: '100vh', backgroundColor: '#f1f5f9', pt: 5 }}>
+      <Container maxWidth="md" sx={{ textAlign: 'center' }}>
         <Typography variant="h3" gutterBottom>
           Xin chào, mình là Web Developer!
         </Typography>

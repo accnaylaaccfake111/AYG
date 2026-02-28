@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button, Container } from '@mui/material';
 import { keyframes } from '@emotion/react';
+import { useNavigate } from 'react-router-dom';
 
 import logo from './img/logo.png'; 
 
@@ -22,6 +23,8 @@ const spin2 = keyframes`
 `;
 
 function LandingPage() {
+  const navigate = useNavigate();
+
   return (
     <Box
       sx={{
@@ -106,6 +109,7 @@ function LandingPage() {
         <Button 
           variant="outlined" 
           size="large"
+          onClick={() => navigate('/home')}
           sx={{
             borderRadius: '50px',
             padding: '12px 40px',
@@ -124,7 +128,7 @@ function LandingPage() {
             }
           }}
         >
-          Learn more
+          Tìm hiểu thêm
         </Button>
       </Container>
     </Box>
